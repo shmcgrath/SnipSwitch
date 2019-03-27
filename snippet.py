@@ -32,8 +32,10 @@ class SnippetFile:
         self.filename = filename
 
     def create_snippet_file(self):
-        #TODO: check if path ends with / or not
-        file = self.path + self.filename + self.ext
+        if self.path.endswith("/") or self.path == "":
+            file = self.path + self.filename + self.ext
+        else:
+            file = self.path + "/" + self.filename + self.ext
         print(file)
         self.create_snippet_header(file)
         self.create_snippet_footer(file)
